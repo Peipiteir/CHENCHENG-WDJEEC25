@@ -6,8 +6,10 @@
         <div class="carousel__item">
           <!-- Display different messages based on the slide index -->
           <template v-if="index === 0">
-            <p>What is the capital city of Portugal? 🇵🇹</p>
+            <p>What is the capital of Portugal? 🇵🇹</p>
           </template>
+
+
           <template v-else-if="index === 1">
             <div class="carousel__content">
               <form @submit.prevent="submitBirthdate">
@@ -17,9 +19,19 @@
               </form>
             </div>
           </template>
+
+
           <template v-else-if="index === 2">
-            <p>This is the third slide with a different message!</p>
+            <div class="flex-container">
+              <div class="box">Journey into the World</div>
+              <div class="box">of Pokémon</div>
+              <div class="box">Pokémon Trainer Workshop</div>
+              <div class="box">by Professor Oak</div>
+              <div class="box">Embark on an epic adventure through the enchanting world of Pokémon! Join us for a Pokémon Trainer Workshop led by the esteemed Professor Oak. Learn the art of capturing, training, and battling with Pokémon as you traverse diverse landscapes, encounter fascinating creatures, and forge lifelong friendships. Are you ready to become the ultimate Pokémon Master?</div>
+            </div>
           </template>
+
+
           <template v-else-if="index === 3">
             <img src="./assets/challenge.png" alt="Your Image" class="fit-image" />
           </template>
@@ -34,7 +46,7 @@
 
     <!-- Message outside the carousel -->
     <template v-if="currentSlideIndex === 0">
-      <p class="answer">The capital city of Portugal is Lisbon.</p>
+      <p class="answer">The capital of Portugal is Lisbon.</p>
     </template>
     <template v-else-if="currentSlideIndex === 1">
       <p class="answer" v-if="birthdateComplete">You were born on: {{ formattedBirthdate }}</p>
@@ -101,6 +113,8 @@ export default {
   align-items: center;
 }
 
+
+
 .carousel__content {
   max-width: 80%; /* Adjust as needed */
 }
@@ -125,5 +139,21 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  justify-content: flex-start; /* Align items to the start of the container (top) */
+  align-items: flex-start;
+  max-height: 500px;
+  width: 75%;
+}
+
+.box {
+  width: 200px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  background-color: green; /* Add background color */
+  margin-bottom: 10px; /* Add margin between boxes */
 }
 </style>
