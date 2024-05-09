@@ -6,7 +6,7 @@
         <div class="carousel__item">
           <!-- Display different messages based on the slide index -->
           <template v-if="index === 0">
-            <p class = "pstyle">What is the capital of Portugal? 🇵🇹</p>
+            <p class = "pstyle">What is the capital of <span style="color: green;">Por</span><span style="color: yellow;">tu</span><span style="color: red;">gal</span>? 🇵🇹</p>
           </template>
 
           <template v-else-if="index === 1">
