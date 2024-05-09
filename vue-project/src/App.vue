@@ -13,8 +13,8 @@
             <div class="carousel__content">
               <form @submit.prevent="submitBirthdate">
                 <label for="birthdate" class = "pstyle">When were you born?</label>
-                <input type="date" id="birthdate" v-model="birthdate" max="9999-12-31" required>
-                <button type="submit">Submit</button>
+                <input type="date" id="birthdate" v-model="birthdate" min="1900-01-01" max="2024-12-31" required>
+                <button type="submit" :disabled="!birthdate">Submit</button> <!-- Disable the button if birthdate is not filled -->
               </form>
             </div>
           </template>
@@ -25,12 +25,15 @@
               <div class="box box2">Pokémon Trainer</div>
               <div class="box box3">Workshop</div>
               <div class="box box4">by Professor Oak</div>
-              <div class="box box5">Embark on an epic adventure through the enchanting world of Pokémon! Join us for a Pokémon Trainer Workshop led by the esteemed Professor Oak. Learn the art of capturing, training, and battling with Pokémon as you traverse diverse landscapes, encounter fascinating creatures, and forge lifelong friendships. Are you ready to become the ultimate Pokémon Master?</div>
+              <div class="box box5">Embark on an epic Pokémon adventure! Join our Trainer Workshop led by Professor Oak. 
+                Learn to capture, train, and battle Pokémons as you explore diverse landscapes, meet fascinating creatures, 
+                and forge friendships. Ready to become a Pokémon Master?
+              </div>
             </div>
           </template>
 
           <template v-else-if="index === 3">
-            <img src="./assets/challenge.png" alt="Your Image" class="fit-image" />
+            <img src="./assets/challenge.png" alt="Web Dev Image" class="fit-image" />
           </template>
         </div>
       </Slide>
@@ -52,7 +55,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel';
 
 import 'vue3-carousel/dist/carousel.css';
@@ -68,29 +71,33 @@ export default {
   data() {
     return {
       currentSlideIndex: 0,
-      birthdate: null,
+      birthdate: null, // Initialize birthdate as null
+      submittedBirthdate: null // Track submitted birthdate separately
     };
   },
   computed: {
     formattedBirthdate() {
-      if (!this.birthdate) return '';
-      const date = new Date(this.birthdate);
-      const day = date.getDate().toString().padStart(2, '0');
+      if (!this.submittedBirthdate) return ''; // Show nothing until submitted
+      const date = new Date(this.submittedBirthdate);
+      const day = (date.getDate() ).toString().padStart(2, '0');
       const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const year = date.getFullYear().toString().padStart(4, 'x');
+      const year = date.getFullYear().toString().padStart(4, 'y');
       return `${day}-${month}-${year}`;
     },
     birthdateComplete() {
-      return this.birthdate;
+      return this.submittedBirthdate !== null; // Check if birthdate is submitted
     }
   },
+
+  
   methods: {
     handleSlideEnd(event) {
       const newIndex = event.currentSlideIndex;
       this.currentSlideIndex = newIndex;
     },
     submitBirthdate() {
-      // Handle form submission if needed
+      console.log("Birthday submitted!");
+      this.submittedBirthdate = this.birthdate; // Update submitted birthdate
     }
   },
 };
@@ -177,7 +184,7 @@ export default {
 }
 .box4 {
   width: 50%; /* 50% width */
-  height: 50px; /* Size M */
+  height: 35px; /* Size M */
   font-size: 20px;
 }
 
