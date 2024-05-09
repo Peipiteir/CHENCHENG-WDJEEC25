@@ -6,31 +6,28 @@
         <div class="carousel__item">
           <!-- Display different messages based on the slide index -->
           <template v-if="index === 0">
-            <p>What is the capital of Portugal? 🇵🇹</p>
+            <p class = "pstyle">What is the capital of Portugal? 🇵🇹</p>
           </template>
-
 
           <template v-else-if="index === 1">
             <div class="carousel__content">
               <form @submit.prevent="submitBirthdate">
-                <label for="birthdate">When were you born?</label>
+                <label for="birthdate" class = "pstyle">When were you born?</label>
                 <input type="date" id="birthdate" v-model="birthdate" max="9999-12-31" required>
                 <button type="submit">Submit</button>
               </form>
             </div>
           </template>
 
-
           <template v-else-if="index === 2">
             <div class="flex-container">
-              <div class="box">Journey into the World</div>
-              <div class="box">of Pokémon</div>
-              <div class="box">Pokémon Trainer Workshop</div>
-              <div class="box">by Professor Oak</div>
-              <div class="box">Embark on an epic adventure through the enchanting world of Pokémon! Join us for a Pokémon Trainer Workshop led by the esteemed Professor Oak. Learn the art of capturing, training, and battling with Pokémon as you traverse diverse landscapes, encounter fascinating creatures, and forge lifelong friendships. Are you ready to become the ultimate Pokémon Master?</div>
+              <div class="box box1">Journey into the World of Pokémon</div>
+              <div class="box box2">Pokémon Trainer</div>
+              <div class="box box3">Workshop</div>
+              <div class="box box4">by Professor Oak</div>
+              <div class="box box5">Embark on an epic adventure through the enchanting world of Pokémon! Join us for a Pokémon Trainer Workshop led by the esteemed Professor Oak. Learn the art of capturing, training, and battling with Pokémon as you traverse diverse landscapes, encounter fascinating creatures, and forge lifelong friendships. Are you ready to become the ultimate Pokémon Master?</div>
             </div>
           </template>
-
 
           <template v-else-if="index === 3">
             <img src="./assets/challenge.png" alt="Your Image" class="fit-image" />
@@ -113,8 +110,6 @@ export default {
   align-items: center;
 }
 
-
-
 .carousel__content {
   max-width: 80%; /* Adjust as needed */
 }
@@ -139,21 +134,79 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
 }
 
 .flex-container {
   display: flex;
   flex-direction: column; /* Arrange items in a column */
-  justify-content: flex-start; /* Align items to the start of the container (top) */
-  align-items: flex-start;
-  max-height: 500px;
-  width: 75%;
+  align-items: flex-start; /* Align items to the start of the container */
+  max-width: 800px; /* Adjust as needed */
+  margin: auto; /* Center horizontally */
 }
 
 .box {
-  width: 200px; /* Adjust width as needed */
-  height: 50px; /* Adjust height as needed */
-  background-color: green; /* Add background color */
+   /* Add background color */
   margin-bottom: 10px; /* Add margin between boxes */
+  padding: 10px 50px; /* Add padding with 20px left and right */
+   /* Set font size to larger */
+  text-align: left; /* Align text to the left */
 }
+
+.box1 {
+  width: 100%; /* 100% width */
+  height: 50px; /* Size L */
+  font-size: 35px;
+  
+}
+
+.box2{
+  width: 50%; /* 50% width */
+  height: 35px; /* Size M */
+  font-size: 35px;
+
+
+}
+
+.box3{
+  width: 50%; /* 50% width */
+  height: 40px; /* Size M */
+  font-size: 30px;
+
+
+}
+.box4 {
+  width: 50%; /* 50% width */
+  height: 50px; /* Size M */
+  font-size: 20px;
+}
+
+.box5 {
+  width: 100%; /* 100% width */
+  height: 150px; /* Size L */
+  margin-top: 20px; /* Big gap between 4th and 5th */
+}
+.pstyle{
+  font-size: 35px;
+}
+.box2 {
+  margin-bottom: 5px; /* Small gap between 2nd and 3rd */
+}
+
+.box3 {
+  margin-bottom: 5px; /* Small gap between 3rd and 4th */
+}
+
+.carousel__content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel__content label,
+.carousel__content input,
+.carousel__content button {
+  margin-bottom: 10px;
+}
+
+
 </style>
