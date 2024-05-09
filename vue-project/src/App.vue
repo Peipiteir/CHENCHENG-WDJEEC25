@@ -14,7 +14,8 @@
               <form @submit.prevent="submitBirthdate">
                 <label for="birthdate" class = "pstyle">When were you born?</label>
                 <input type="date" id="birthdate" v-model="birthdate" min="1900-01-01" max="2024-12-31" required>
-                <button type="submit" :disabled="!birthdate">Submit</button> <!-- Disable the button if birthdate is not filled -->
+                <button type="submit" :disabled="!birthdate">Submit</button>
+                 <!-- Disable the button if birthdate is not filled -->
               </form>
             </div>
           </template>
@@ -105,7 +106,7 @@ export default {
 
 <style>
 .carousel-section {
-  max-width: 800px; /* Adjust as needed */
+  max-width: 800px;
   margin: auto auto;
 }
 
@@ -118,7 +119,7 @@ export default {
 }
 
 .carousel__content {
-  max-width: 80%; /* Adjust as needed */
+  max-width: 80%;
 }
 
 .carousel__slide {
@@ -148,65 +149,60 @@ export default {
   display: flex;
   flex-direction: column; /* Arrange items in a column */
   align-items: flex-start; /* Align items to the start of the container */
-  max-width: 800px; /* Adjust as needed */
+  max-width: 800px;
   margin: auto; /* Center horizontally */
 }
 
 .box {
-   /* Add background color */
-  margin-bottom: 10px; /* Add margin between boxes */
-  padding: 10px 50px; /* Add padding with 20px left and right */
-   /* Set font size to larger */
-  text-align: left; /* Align text to the left */
+  margin-bottom: 10px; 
+  padding: 10px 50px; 
+  text-align: left; 
 }
 
 .box1 {
-  width: 100%; /* 100% width */
-  height: 50px; /* Size L */
+  width: 100%;
+  height: 50px;
   font-size: 35px;
-  
 }
 
-.box2{
-  width: 50%; /* 50% width */
-  height: 35px; /* Size M */
+.box2 {
+  width: 50%;
+  height: 35px;
   font-size: 35px;
-
+  margin-bottom: 5px; 
 
 }
 
-.box3{
-  width: 50%; /* 50% width */
-  height: 40px; /* Size M */
+.box3 {
+  width: 50%;
+  height: 40px;
   font-size: 30px;
-
+  margin-bottom: 5px;
 
 }
 .box4 {
-  width: 50%; /* 50% width */
-  height: 35px; /* Size M */
+  width: 50%;
+  height: 35px;
   font-size: 20px;
 }
 
 .box5 {
-  width: 100%; /* 100% width */
-  height: 150px; /* Size L */
-  margin-top: 20px; /* Big gap between 4th and 5th */
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
 }
-.pstyle{
+.pstyle {
   font-size: 35px;
 }
-.box2 {
-  margin-bottom: 5px; /* Small gap between 2nd and 3rd */
-}
 
-.box3 {
-  margin-bottom: 5px; /* Small gap between 3rd and 4th */
-}
 
 .carousel__content form {
   display: flex;
   flex-direction: column;
+}
+
+.carousel__content input {
+  font-size: 18px;
 }
 
 .carousel__content label,
